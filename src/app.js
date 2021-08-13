@@ -1,10 +1,13 @@
 import "./styles.css";
 import * as math from "./modules/math";
 import * as utils from "./modules/utils";
+console.clear();
 
-const testFib = () => math.fib(1000, true);
+// const testFib = () => math.fib(100, true);
+const testIsPrime = () => math.isPrime(123232);
 
-utils.measure(testFib);
+// utils.measure(testFib);
+utils.measure(testIsPrime);
 
 document.getElementById("app").innerHTML = `
 <h1>Hello Vanilla!</h1>

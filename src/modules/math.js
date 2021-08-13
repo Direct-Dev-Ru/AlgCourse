@@ -7,4 +7,13 @@ function fib(n, logging = false) {
   return fibSequence[n];
 }
 
-module.exports = { fib };
+function isPrime(number) {
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+module.exports = { fib, isPrime };
