@@ -4,7 +4,7 @@ import * as utils from "./modules/utils";
 console.clear();
 
 // const testFib = () => math.fib(100, true);
-const testIsPrime = () => math.isPrime(123232);
+const testIsPrime = () => math.isPrime(22777);
 
 // utils.measure(testFib);
 utils.measure(testIsPrime);
