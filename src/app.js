@@ -1,7 +1,10 @@
 import "./styles.css";
 import * as math from "./modules/math";
+import * as utils from "./modules/utils";
 
-console.log(math.fib(7, true));
+const testFib = () => math.fib(1000, true);
+
+utils.measure(testFib);
 
 document.getElementById("app").innerHTML = `
 <h1>Hello Vanilla!</h1>
