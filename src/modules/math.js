@@ -18,4 +18,23 @@ function isPrime(number) {
   return true;
 }
 
-module.exports = { fib, isPrime };
+function isPowerOfTwo(number) {
+  if (typeof number !== "number") {
+    return false;
+  }
+  if (number === 0) {
+    return 0;
+  }
+  let bExit = false;
+  let restNumber = number;
+  while (bExit) {
+    if (restNumber === 1 || restNumber === 0) {
+      bExit = true;
+      break;
+    }
+    restNumber = number - Math.floor(number / 2);
+  }
+  return restNumber === 0;
+}
+
+module.exports = { fib, isPrime, isPof2: isPowerOfTwo };
