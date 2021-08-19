@@ -22,19 +22,18 @@ function isPowerOfTwo(number) {
   if (typeof number !== "number") {
     return false;
   }
-  if (number === 0) {
-    return 0;
+  if (number < 1) {
+    return false;
   }
-  let bExit = false;
+
   let restNumber = number;
-  while (bExit) {
-    if (restNumber === 1 || restNumber === 0) {
-      bExit = true;
-      break;
+  while (restNumber !== 1) {
+    if (restNumber % 2 !== 0) {
+      return false;
     }
-    restNumber = number - Math.floor(number / 2);
+    restNumber = restNumber / 2;
   }
-  return restNumber === 0;
+  return true;
 }
 
 module.exports = { fib, isPrime, isPof2: isPowerOfTwo };

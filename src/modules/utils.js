@@ -1,11 +1,10 @@
 function measure(f) {
-  console.log("--------start----------");
+  console.log(`--------start ${f.name}----------`);
   var time = performance.now();
   // некий код
   console.log(f());
   time = performance.now() - time;
   console.log("Время выполнения = ", time);
-  console.log("--------finish----------");
+  console.log(`--------start ${f.name}----------`);
 }
-
 module.exports = { measure };
