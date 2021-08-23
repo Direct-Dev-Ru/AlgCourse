@@ -12,10 +12,11 @@ const testIsPOf2 = () => math.isPof2(2048);
 utils.measure(testIsPOf2);
 
 document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
+<h1>Hello People!</h1>
 <div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+  Go to console - it is alg course training ... 
+  <div>
+  <a href="http://direct-dev.ru" target="_blank" rel="noopener noreferrer">my home page</a>
+  </div>
 </div>
 `;
