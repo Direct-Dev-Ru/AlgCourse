@@ -18,6 +18,23 @@ function isPrime(number) {
   return true;
 }
 
+// function isPowerOfTwo(number) {
+//   if (typeof number !== "number") {
+//     return false;
+//   }
+//   if (number < 1) {
+//     return false;
+//   }
+
+//   let restNumber = number;
+//   while (restNumber !== 1) {
+//     if (restNumber % 2 !== 0) {
+//       return false;
+//     }
+//     restNumber = restNumber / 2;
+//   }
+//   return true;
+// }
 function isPowerOfTwo(number) {
   if (typeof number !== "number") {
     return false;
@@ -26,14 +43,6 @@ function isPowerOfTwo(number) {
     return false;
   }
 
-  let restNumber = number;
-  while (restNumber !== 1) {
-    if (restNumber % 2 !== 0) {
-      return false;
-    }
-    restNumber = restNumber / 2;
-  }
-  return true;
+  return (number & (number - 1)) === 0;
 }
-
 module.exports = { fib, isPrime, isPof2: isPowerOfTwo };
