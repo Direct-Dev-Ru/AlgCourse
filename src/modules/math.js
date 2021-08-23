@@ -45,4 +45,21 @@ function isPowerOfTwo(number) {
 
   return (number & (number - 1)) === 0;
 }
-module.exports = { fib, isPrime, isPof2: isPowerOfTwo };
+
+function factorial(number) {
+  if (typeof number !== "number") {
+    return NaN;
+  }
+  if (number < 1) {
+    return NaN;
+  }
+  let result = 1;
+
+  for (let i = 2; i < number; i++) {
+    result = result * i;
+  }
+
+  return result;
+}
+
+module.exports = { fib, isPrime, isPof2: isPowerOfTwo, factorial };

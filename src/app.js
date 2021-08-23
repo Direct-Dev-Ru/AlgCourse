@@ -5,11 +5,13 @@ console.clear();
 
 // const testFib = () => math.fib(100, true);
 //const testIsPrime = () => math.isPrime(22777);
-const testIsPOf2 = () => math.isPof2(2048);
+// const testIsPOf2 = () => math.isPof2(2048);
+const testFact = () => math.factorial(160);
 
 // utils.measure(testFib);
 //utils.measure(testIsPrime);
-utils.measure(testIsPOf2);
+// utils.measure(testIsPOf2);
+utils.measure(testFact);
 
 document.getElementById("app").innerHTML = `
 <h1>Hello People!</h1>
