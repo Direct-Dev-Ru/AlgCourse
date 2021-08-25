@@ -4,11 +4,25 @@ import * as reqursion from "./modules/reqursion";
 import * as utils from "./modules/utils";
 console.clear();
 
-const testFib = () => math.fib(50, false);
-const testFibReqursion = () => reqursion.fibReqursion(25);
-//const testIsPrime = () => math.isPrime(22777);
-// const testIsPOf2 = () => math.isPof2(2048);
-//const testFact = () => math.factorial(160);
+const testFib = (options) => {
+  return math.fib(50, options);
+};
+
+const testFibReqursion = (options) => {
+  return reqursion.fibReqursion(25, options);
+};
+
+// const testIsPrime = (options) => {
+//   return  math.isPrime(22777, options);
+// }
+
+// const testIsPOf2 = (options) => {
+//   return math.isPof2(2048, options);
+// }
+
+// const testFact = (options) => {
+//   return math.factorial(160, options);
+// }
 
 utils.measure(testFib);
 utils.measure(testFibReqursion);

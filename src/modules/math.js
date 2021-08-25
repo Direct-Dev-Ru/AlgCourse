@@ -1,9 +1,10 @@
-function fib(n, logging = false) {
+function fib(n, options = {}) {
   const fibSequence = [1, 1];
   for (let i = 2; i < n + 1; i++) {
     fibSequence.push(fibSequence[i - 2] + fibSequence[i - 1]);
   }
-  logging && console.log(fibSequence);
+  options?.logging && console.log(fibSequence);
+  options.count = options.count + 1;
   return fibSequence[n];
 }
 
