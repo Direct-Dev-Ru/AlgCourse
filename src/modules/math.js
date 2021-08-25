@@ -5,18 +5,27 @@ function fib(n, options = {}) {
   }
   options?.logging && console.log(fibSequence);
   options.count = options.count + 1;
-  return fibSequence[n];
+  const result = fibSequence[n];
+  options.result = result;
+  return result;
 }
 
-function isPrime(number) {
+function isPrime(number, options = {}) {
   for (let i = 2; i < Math.sqrt(number); i++) {
     if (number % i === 0) {
-      console.log(i);
+      options.count = options.count + 1;
+      const result = false;
+      options.result = result;
 
-      return false;
+      return result;
     }
   }
-  return true;
+
+  options.count = options.count + 1;
+  const result = true;
+  options.result = result;
+
+  return result;
 }
 
 // function isPowerOfTwo(number) {

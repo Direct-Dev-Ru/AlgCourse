@@ -3,7 +3,9 @@ function fibReqursion(n, options = {}) {
     return 1;
   }
   options.count = options.count + 1;
-  return fibReqursion(n - 1, options) + fibReqursion(n - 2, options);
+  const result = fibReqursion(n - 1, options) + fibReqursion(n - 2, options);
+  options.result = result;
+  return result;
 }
 
 module.exports = { fibReqursion };
