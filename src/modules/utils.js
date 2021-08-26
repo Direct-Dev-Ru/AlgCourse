@@ -4,6 +4,7 @@ function measure(f) {
   var time = performance.now();
   // f function call
   console.log(`And the result is ....: ${f(options)}`);
+  console.log(options.memo);
   time = performance.now() - time;
   console.log(`Runnung time = ${time}`);
   console.log(`Runnung count = ${options.count}`);
