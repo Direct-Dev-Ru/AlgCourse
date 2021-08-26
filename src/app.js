@@ -4,12 +4,13 @@ import * as reqursion from "./modules/reqursion";
 import * as utils from "./modules/utils";
 console.clear();
 
+const fibParam = 45;
 const testFib = (options) => {
-  return math.fib(50, options);
+  return math.fib(fibParam, options);
 };
 
 const testFibReqursion = (options) => {
-  return reqursion.fibReqursion(25, options);
+  return reqursion.fibReqursion(fibParam, options);
 };
 
 // const testIsPrime = (options) => {
