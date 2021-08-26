@@ -1,7 +1,10 @@
-function fibReqursion(n, options = {}) {
+function fibReqursion(n, options = { memo: {} }) {
   let result;
   options.count = options.count + 1;
   const memo = options?.memo ?? {};
+  if (!options?.memo) {
+    options.memo = memo;
+  }
   if (memo[n]) {
     result = memo[n];
   } else {
