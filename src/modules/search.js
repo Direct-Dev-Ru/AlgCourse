@@ -4,9 +4,10 @@ function linearSearch(
   compareFn = () => 0 === 1,
   options = { caseSensivity: false }
 ) {
-  let index;
+  let index = -1;
   let __element = element;
   for (let item of data) {
+    index++;
     if (typeof item === "object") {
       if (compareFn(item, __element)) {
         return index;
@@ -24,8 +25,8 @@ function linearSearch(
         return index;
       }
     }
-    index++;
   }
+  return -1;
 }
 
 module.exports = { linearSearch };
