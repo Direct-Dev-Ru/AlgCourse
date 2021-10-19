@@ -79,9 +79,8 @@ function binarySearch(sortedArray, target) {
   let endTargetIndex = -1;
   let startTargetIndex = -1;
 
-  // if (result.targetIndexes.length === 0) {
-  //   return result;
-  // }
+  console.log(target, startIndex, endIndex);
+
   let count = 0;
   while (
     (startIndex < endIndex &&
@@ -90,7 +89,7 @@ function binarySearch(sortedArray, target) {
     count < 10
   ) {
     // let middleIndex = Math.floor(sortedArray.length / 2);
-    let middleIndex = Math.floor(endIndex - startIndex / 2);
+    let middleIndex = Math.floor((endIndex - startIndex) / 2);
     middleIndex = seekBound(sortedArray, middleIndex, 1);
     let middleElement = sortedArray[middleIndex];
     console.log(middleIndex, middleElement);
