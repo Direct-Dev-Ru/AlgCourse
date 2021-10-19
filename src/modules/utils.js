@@ -1,5 +1,5 @@
-function measure(f) {
-  let options = { count: 0, result: null, logging: false };
+function measure(f, opt = {}) {
+  let options = { count: 0, result: null, logging: false, ...opt };
   console.log(`--------start of running ${f.name}----------`);
   var time = performance.now();
   // f function call
@@ -18,4 +18,15 @@ function getNumMockData(itemsCount = 100, maxValue) {
   );
 }
 
-module.exports = { measure, getNumMockData };
+function sortIntegersFn(a, b) {
+  if (a < b) {
+    return -1; // Или любое число, меньшее нуля
+  }
+  if (a > b) {
+    return 1; // Или любое число, большее нуля
+  }
+  // в случае а = b вернуть 0
+  return 0;
+}
+
+module.exports = { measure, getNumMockData, sortIntegersFn };

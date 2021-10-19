@@ -1,4 +1,4 @@
-function fibReqursion(n, options = { memo: {} }) {
+function fibReqursion(n, options) {
   let result;
   options.count = options.count + 1;
   const memo = options?.memo ?? {};
@@ -18,5 +18,4 @@ function fibReqursion(n, options = { memo: {} }) {
   options.result = result;
   return result;
 }
-
 module.exports = { fibReqursion };

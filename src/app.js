@@ -1,6 +1,6 @@
 import "./styles.css";
-import * as math from "./modules/math";
-import * as reqursion from "./modules/reqursion";
+// import * as math from "./modules/math";
+// import * as reqursion from "./modules/reqursion";
 import * as utils from "./modules/utils";
 import * as search from "./modules/search";
 console.clear();
@@ -26,9 +26,13 @@ console.clear();
 //   return math.factorial(160, options);
 // }
 
-const data = utils.getNumMockData(2000, 100);
+const data = utils.getNumMockData(21, 99);
+const sortedData = utils.getNumMockData(21, 99).sort(utils.sortIntegersFn);
+
 console.log(data);
-const el = data[1000];
+const el = data[Math.floor(data.length / 2)];
+console.log(el);
+console.log(sortedData);
 
 const testNumberSearch = () => {
   return search.linearSearch(data, el);
