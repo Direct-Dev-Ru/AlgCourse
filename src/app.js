@@ -34,8 +34,17 @@ const el = data[Math.floor(data.length / 2)];
 console.log(el);
 console.log(sortedData);
 
-const testNumberSearch = () => {
-  return search.linearSearch(data, el);
+// const testNumberSearch = () => {
+//   return search.linearSearch(data, el);
+// };
+
+const testSeekBound = () => {
+  return search.seekBound(
+    [11, 11, 23, 23, 23, 45, 45, 66, 77, 78, 78, 78, 99, 99, 99],
+    //0  1    2  3   4    5  6   7   8   9   10  11  12  13  14
+    2,
+    1
+  );
 };
 
 // utils.measure(testFib);
@@ -44,7 +53,8 @@ const testNumberSearch = () => {
 // utils.measure(testIsPOf2);
 // utils.measure(testFact);
 
-utils.measure(testNumberSearch);
+// utils.measure(testNumberSearch);
+utils.measure(testSeekBound);
 
 document.getElementById("app").innerHTML = `
 <h1>Hello People!</h1>
