@@ -33,7 +33,8 @@ console.log(data);
 const el = data[Math.floor(data.length / 2)];
 console.log(el);
 console.log(sortedData);
-const el2 = sortedData[Math.floor(sortedData.length / 2)];
+const el2 = 88;
+// const el2 = sortedData[Math.floor(sortedData.length / 4)];
 console.log(el2);
 
 // const testNumberSearch = () => {
@@ -49,9 +50,9 @@ console.log(el2);
 //   );
 // };
 
-// const testBinarySearch = () => {
-//   return search.binarySearch(sortedData, el2);
-// };
+const testBinarySearch = () => {
+   return search.binarySearch(sortedData, el2);
+};
 
 // utils.measure(testFib);
 // utils.measure(testFibReqursion);
@@ -60,7 +61,7 @@ console.log(el2);
 // utils.measure(testFact);
 
 // utils.measure(testNumberSearch);
-// utils.measure(testBinarySearch);
+utils.measure(testBinarySearch);
 // utils.measure(testSeekBound);
 
 document.getElementById("app").innerHTML = `
