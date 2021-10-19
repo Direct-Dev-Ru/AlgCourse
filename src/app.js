@@ -33,7 +33,8 @@ console.log(data);
 const el = data[Math.floor(data.length / 2)];
 console.log(el);
 console.log(sortedData);
-// const el2 = data[Math.floor(data.length / 3)];
+const el2 = sortedData[Math.floor(sortedData.length / 2)];
+console.log(el2);
 
 // const testNumberSearch = () => {
 //   return search.linearSearch(data, el);

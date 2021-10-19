@@ -88,9 +88,11 @@ function binarySearch(sortedArray, target) {
     startIndex >= 0 &&
     endIndex <= sortedArray.length - 1
   ) {
-    let middleIndex = Math.floor(sortedArray.length / 2);
+    // let middleIndex = Math.floor(sortedArray.length / 2);
+    let middleIndex = Math.floor(endIndex - startIndex / 2);
     middleIndex = seekBound(sortedArray, middleIndex, 1);
     let middleElement = sortedArray[middleIndex];
+    console.log(middleIndex, middleElement);
 
     if (middleElement === target) {
       endTargetIndex = middleIndex;
