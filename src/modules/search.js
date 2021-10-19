@@ -79,27 +79,41 @@ function binarySearch(sortedArray, target) {
   let endTargetIndex = -1;
   let startTargetIndex = -1;
 
-  if (result.targetIndexes.length === 0) {
-    return result;
-  }
-  while (startIndex < endIndex) {
+  // if (result.targetIndexes.length === 0) {
+  //   return result;
+  // }
+
+  while (
+    startIndex < endIndex &&
+    startIndex >= 0 &&
+    endIndex <= sortedArray.length - 1
+  ) {
     let middleIndex = Math.floor(sortedArray.length / 2);
+    middleIndex = seekBound(sortedArray, middleIndex, 1);
     let middleElement = sortedArray[middleIndex];
-    if (middleIndex < endIndex) {
-      for (let index = middleIndex + 1; index <= endIndex; index++) {
-        const element = sortedArray[index];
-        if (element !== middleElement) {
-          middleIndex = index - 1;
-          break;
-        }
-      }
-    }
-    middleElement = sortedArray[middleIndex];
 
     if (middleElement === target) {
-      endTargetIndex = middleElement;
+      endTargetIndex = middleIndex;
+      startTargetIndex = seekBound(sortedArray, endTargetIndex, -1);
+      break;
+    }
+
+    if (middleElement > target) {
+      // target somethere to left (to start)
+      endIndex = middleIndex;
+    } else {
+      // target somethere to right (to end)
+      startIndex = middleIndex;
     }
   }
+  if (startTargetIndex !== -1 && endTargetIndex !== -1) {
+    for (let index = startTargetIndex; index <= endTargetIndex; index++) {
+      const element = sortedArray[index];
+      result.targetIndexes.push(index);
+      result.targetElements.push(element);
+    }
+  }
+  return result;
 }
 
 module.exports = { linearSearch, binarySearch, seekBound };

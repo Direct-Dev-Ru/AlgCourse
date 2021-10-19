@@ -27,24 +27,29 @@ console.clear();
 // }
 
 const data = utils.getNumMockData(21, 99);
-const sortedData = utils.getNumMockData(21, 99).sort(utils.sortIntegersFn);
+const sortedData = utils.getNumMockData(200, 99).sort(utils.sortIntegersFn);
 
 console.log(data);
 const el = data[Math.floor(data.length / 2)];
 console.log(el);
 console.log(sortedData);
+const el2 = data[Math.floor(data.length / 3)];
 
 // const testNumberSearch = () => {
 //   return search.linearSearch(data, el);
 // };
 
-const testSeekBound = () => {
-  return search.seekBound(
-    [11, 11, 23, 23, 23, 45, 45, 66, 77, 78, 78, 78, 99, 99, 99],
-    //0  1    2  3   4    5  6   7   8   9   10  11  12  13  14
-    2,
-    1
-  );
+// const testSeekBound = () => {
+//   return search.seekBound(
+//     [11, 11, 23, 23, 23, 45, 45, 66, 77, 78, 78, 78, 99, 99, 99],
+//     //0  1    2  3   4    5  6   7   8   9   10  11  12  13  14
+//     14,
+//     -11
+//   );
+// };
+
+const testBinarySearch = () => {
+  return search.binarySearch(sortedData, el2);
 };
 
 // utils.measure(testFib);
@@ -54,7 +59,8 @@ const testSeekBound = () => {
 // utils.measure(testFact);
 
 // utils.measure(testNumberSearch);
-utils.measure(testSeekBound);
+utils.measure(testBinarySearch);
+// utils.measure(testSeekBound);
 
 document.getElementById("app").innerHTML = `
 <h1>Hello People!</h1>
