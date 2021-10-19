@@ -60,7 +60,7 @@ const testBinarySearch = () => {
 // utils.measure(testFact);
 
 // utils.measure(testNumberSearch);
-utils.measure(testBinarySearch);
+// utils.measure(testBinarySearch);
 // utils.measure(testSeekBound);
 
 document.getElementById("app").innerHTML = `
