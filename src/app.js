@@ -49,9 +49,9 @@ console.log(el2);
 //   );
 // };
 
-const testBinarySearch = () => {
-  return search.binarySearch(sortedData, el2);
-};
+// const testBinarySearch = () => {
+//   return search.binarySearch(sortedData, el2);
+// };
 
 // utils.measure(testFib);
 // utils.measure(testFibReqursion);
