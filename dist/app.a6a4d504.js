@@ -248,6 +248,12 @@ module.exports = {
   sortIntegersFn: sortIntegersFn
 };
 },{}],"src/modules/search.js":[function(require,module,exports) {
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -366,31 +372,36 @@ function binarySearch(sortedArray, target) {
   };
   var endTargetIndex = -1;
   var startTargetIndex = -1;
-  console.log(target, startIndex, endIndex);
   var count = 0;
 
-  while (startIndex < endIndex && count < 10) {
-    // let middleIndex = Math.floor(sortedArray.length / 2);
-    var middleIndex = Math.floor((endIndex - startIndex) / 2);
-    middleIndex = seekBound(sortedArray, middleIndex, 1);
-    var middleElement = sortedArray[middleIndex];
+  while (startIndex < endIndex && count < 20000) {
     count++;
+    console.log("=============================================");
+    console.log("startloop:startIndex", startIndex, "startloop:endIndex", endIndex);
+    var middleIndex = Math.floor((endIndex - startIndex) / 2); // middleIndex = seekBound(sortedArray, middleIndex, 1);
+
+    var middleElement = sortedArray[startIndex + middleIndex];
+    console.log("middleIndex", middleIndex, "middleElement", middleElement);
 
     if (middleElement === target) {
-      endTargetIndex = middleIndex;
+      console.log("bingo!!!");
+      endTargetIndex = startIndex + middleIndex;
       startTargetIndex = seekBound(sortedArray, endTargetIndex, -1);
+      endTargetIndex = seekBound(sortedArray, startTargetIndex, 1);
       break;
     }
 
     if (middleElement > target) {
       // target somethere to left (to start)
-      endIndex = middleIndex;
+      endIndex = startIndex + middleIndex;
+      endIndex > sortedArray.length - 1 ? sortedArray.length - 1 : endIndex;
     } else {
       // target somethere to right (to end)
-      startIndex = middleIndex;
+      startIndex = startIndex + middleIndex + 1;
+      startIndex < 0 ? 0 : startIndex;
     }
 
-    console.log(target, startIndex, endIndex);
+    console.log("endloop:startIndex", startIndex, "endloop:endIndex", endIndex);
   }
 
   if (startTargetIndex !== -1 && endTargetIndex !== -1) {
@@ -401,8 +412,13 @@ function binarySearch(sortedArray, target) {
     }
   }
 
-  console.log(result.targetIndexes, result.targetElements);
-  return result;
+  return _objectSpread(_objectSpread({}, result), {}, {
+    toString: function toString() {
+      var _this$targetIndexes, _this$targetElements;
+
+      return "\u0418\u043D\u0434\u0435\u043A\u0441\u044B: ".concat((_this$targetIndexes = this.targetIndexes) === null || _this$targetIndexes === void 0 ? void 0 : _this$targetIndexes.join(", "), ". \u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B: ").concat((_this$targetElements = this.targetElements) === null || _this$targetElements === void 0 ? void 0 : _this$targetElements.join(", "));
+    }
+  });
 }
 
 module.exports = {
@@ -442,8 +458,9 @@ console.clear(); // const fibParam = 45;
 //   return math.factorial(160, options);
 // }
 
-var data = utils.getNumMockData(21, 99);
-var sortedData = utils.getNumMockData(200, 99).sort(utils.sortIntegersFn);
+var data = utils.getNumMockData(21, 99); // const sortedData = utils.getNumMockData(200, 99).sort(utils.sortIntegersFn);
+
+var sortedData = [0, 2, 2, 23, 23, 23, 23, 34, 45, 46, 46, 46, 56, 56, 77, 78, 88, 88, 99, 99, 99, 99, 99, 100, 100, 100];
 console.log(data);
 var el = data[Math.floor(data.length / 2)];
 console.log(el);
@@ -503,7 +520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40619" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41977" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

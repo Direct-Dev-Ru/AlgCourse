@@ -27,7 +27,8 @@ console.clear();
 // }
 
 const data = utils.getNumMockData(21, 99);
-const sortedData = utils.getNumMockData(200, 99).sort(utils.sortIntegersFn);
+// const sortedData = utils.getNumMockData(200, 99).sort(utils.sortIntegersFn);
+const sortedData = [0,2,2,23,23,23,23,34,45,46,46,46,56,56,77,78,88,88,99,99,99,99,99,100,100,100];
 
 console.log(data);
 const el = data[Math.floor(data.length / 2)];
