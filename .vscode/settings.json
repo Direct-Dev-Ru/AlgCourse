@@ -1,7 +1,3 @@
 {
-	"git.ignoreLimitWarning": true,
-	"workbench.colorCustomizations": {
-		"sideBar.border": "#008080",
-	},
-	"peacock.remoteColor": "teal"
+	"git.ignoreLimitWarning": true
 }
